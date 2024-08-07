@@ -500,7 +500,7 @@ export const getServerSideProps: GetServerSideProps = async (): Promise<any> => 
 	};
 
 	const	[{buyBacks}, _legacyData] = await Promise.all([
-		request('https://api.thegraph.com/subgraphs/name/yearn/yfi-buyback', `{
+		request((process.env.SUBGRAPH_URI || ''), `{
 			buyBacks(first: 1000) {
 				id
 				block
